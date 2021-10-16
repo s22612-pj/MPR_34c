@@ -20,4 +20,9 @@ public class SandwichRestController {
         return ResponseEntity.ok(poorOne);
 
     }
+    @GetMapping("/example2")
+    public ResponseEntity<Sandwich> getNullSandwich() {
+        Sandwich something = new Sandwich(null, "asd", 1201, 5.2d, null, SizeOfSandwich.S);
+        return ResponseEntity.ok(something);
+    }
 }
