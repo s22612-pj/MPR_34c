@@ -1,6 +1,13 @@
 package com.example.demo;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "Ingredient")
 public class Ingredients {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private int kcal;

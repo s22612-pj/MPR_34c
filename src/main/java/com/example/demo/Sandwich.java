@@ -1,13 +1,20 @@
 package com.example.demo;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "Sandwich")
 public class Sandwich{
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     private int baseCalories;
     private double basePrice;
+    @OneToMany
     private List<Ingredients> ingredients;
     private SizeOfSandwich size;
 
