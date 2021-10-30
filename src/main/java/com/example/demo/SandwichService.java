@@ -20,3 +20,10 @@ public class SandwichService {
     }
 
 }
+
+
+//co to jest @Repository
+//co to jest @JPAREPOSITORY
+//Jak stworzyć @Repository
+//Jak zapisywać do bazy danych
+//Jak odczytywać z bazy danych
