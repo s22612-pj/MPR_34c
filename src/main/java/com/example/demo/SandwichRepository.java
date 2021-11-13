@@ -14,4 +14,16 @@ public interface SandwichRepository extends JpaRepository<Sandwich, Integer> {
     @Query("update  Sandwich  s set s.name = :name where s.id = :id")
     void modifyMe(String name, Integer id);
 
+    List<Sandwich> findallById(Iterable<Integer> ids);
+
 }
+
+
+
+//PRACA DOMOWA Z 4 zjazdu
+//poczytac o optional!!!!!!!!!!!!
+//poczytac o @PathVariable
+//poczytac o @RequestParam
+//Poczytac o JpaRepository
+//rozne zapytania z sandwichRepository
+
