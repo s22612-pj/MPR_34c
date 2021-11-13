@@ -31,6 +31,12 @@ public class SandwichRestController {
 
     }
 
+    @GetMapping("/top5")
+    public ResponseEntity<Sandwich> topSandwich() {
+        return ResponseEntity.ok(sandwichService.topSandwich("SuperTopSandwich"));
+
+    }
+
     //poczytac o @restcontroller
     //poczytac o @service
     //poczytac o wstrzykiwaniu zaleznosci

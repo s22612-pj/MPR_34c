@@ -14,7 +14,7 @@ public class Sandwich{
     private String name;
     private int baseCalories;
     private double basePrice;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Ingredients> ingredients;
     private SizeOfSandwich size;
 
@@ -91,3 +91,10 @@ public class Sandwich{
                 '}';
     }
 }
+
+
+
+//Odwolywanie stereotypów
+//    \/
+//controller do serwisu
+//serwis do repozytorium
