@@ -14,7 +14,7 @@ public interface SandwichRepository extends JpaRepository<Sandwich, Integer> {
     @Query("update  Sandwich  s set s.name = :name where s.id = :id")
     void modifyMe(String name, Integer id);
 
-    List<Sandwich> findallById(Iterable<Integer> ids);
+    List<Sandwich> findAllByIdLessThanEqual(Integer id);
 
 }
 

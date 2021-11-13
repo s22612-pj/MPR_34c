@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 
 @RestController
 @RequestMapping("/sandwich")
@@ -32,8 +34,8 @@ public class SandwichRestController {
     }
 
     @GetMapping("/top5")
-    public ResponseEntity<Sandwich> topSandwich() {
-        return ResponseEntity.ok(sandwichService.topSandwich("SuperTopSandwich"));
+    public ResponseEntity<List<Sandwich>> getTopFiveSandwiches() {
+        return ResponseEntity.ok(sandwichService.findTopSandwiches());
 
     }
 

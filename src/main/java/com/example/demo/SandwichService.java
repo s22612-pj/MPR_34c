@@ -30,12 +30,8 @@ public class SandwichService {
 
     }
 
-    public Sandwich topSandwich(String topSandwichName) {
-        Ingredients bread = new Ingredients(1, "white", 100,1.5d);
-        Sandwich sandwich = new Sandwich(1, topSandwichName, 100, 5.0d, null, SizeOfSandwich.XL);
-        return sandwichRepository.save(sandwich);
-
-
+    public List<Sandwich> findTopSandwiches() {
+        return sandwichRepository.findAllByIdLessThanEqual(5);
     }
 
 
