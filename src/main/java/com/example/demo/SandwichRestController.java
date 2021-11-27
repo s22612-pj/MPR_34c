@@ -2,9 +2,7 @@ package com.example.demo;
 
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,8 +26,8 @@ public class SandwichRestController {
     }
 
     @GetMapping("/example2")
-    public ResponseEntity<Sandwich> prepareSandwich() {
-        return ResponseEntity.ok(sandwichService.prepareSandwich("SUPER SANDWICH"));
+    public ResponseEntity<Sandwich> prepareSandwich(@RequestParam String sandwichName) {
+        return ResponseEntity.ok(sandwichService.prepareSandwich(sandwichName));
 
     }
 
@@ -39,6 +37,11 @@ public class SandwichRestController {
 
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Sandwich> findById(@PathVariable Integer id) {
+        return ResponseEntity.ok(sandwichService.findById(id));
+
+    }
     //poczytac o @restcontroller
     //poczytac o @service
     //poczytac o wstrzykiwaniu zaleznosci

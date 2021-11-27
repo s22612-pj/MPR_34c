@@ -4,6 +4,7 @@ package com.example.demo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -35,9 +36,47 @@ public class SandwichService {
     }
 
 
+    public Sandwich findById(Integer id) {
+        Optional<Sandwich> byId =sandwichRepository.findById(id);
+        return byId.orElseThrow(RuntimeException::new);
+    }
 
+    public void addIngredients(Sandwich sandwich, Ingredients ingredients) {
+        if(sandwich.getIngredients() != null) {
+            sandwich.getIngredients().add(ingredients);
+        }
+    }
 
+    public void changeName(Sandwich sandwich) {
+        if (sandwich.getName() != null) {
+            sandwich.setName(sandwich.getName() + "ABC");
+        }
+    }
 
+    public void changeBaseCalories(Sandwich sandwich) {
+        if(sandwich.getBaseCalories() != null) {
+            sandwich.setBaseCalories(sandwich.getBaseCalories() + 100);
+        }
+    }
+
+    public void changeBasePrice(Sandwich sandwich) {
+        if(sandwich.getBasePrice() != null) {
+            sandwich.setBasePrice(sandwich.getBasePrice() + 100);
+        }
+    }
+
+    public void changeSize(Sandwich sandwich, SizeOfSandwich sizeOfSandwich) {
+        if(sandwich.getSize() != SizeOfSandwich.L) {
+            sandwich.setSize(SizeOfSandwich.L);
+        }
+    }
+    private double calculatedPrice(Sandwich sandwich) {
+        double finalPrice = sandwich.getBasePrice();
+        for(Ingredients ingredients : sandwich.getIngredients()) {
+            finalPrice += ingredients.getPrice();
+        }
+        return finalPrice;
+    }
 }
 
 
